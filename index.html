@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- CDN ICONS CSS -->
+     <link
+  href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+  rel="stylesheet"
+   />
+
+    <!-- CDN FONTS/ICONS required by the Weather App page -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="shortcut icon" style="border-radius: 50%;" href="https://imgs.search.brave.com/SRW97KFVG-30j_tUnMcirtRFGwBCxH30iVxpEzs-uyw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/ZHJpYmJibGUuY29t/L3VzZXJ1cGxvYWQv/MjIwMDQ1MjAvZmls/ZS9vcmlnaW5hbC03/Yjc0NmQ2MjBiMTE2/NmVhMjQ2MWNkNzE5/MzY1OGQ4MC5wbmc_/Zm9ybWF0PXdlYnAm/cmVzaXplPTQwMHgz/MDAmdmVydGljYWw9/Y2VudGVy" type="image/x-icon">
+
+    <title>DashBoard</title>
+</head>
+<body>
+    <nav class="sidebar close">
+        <header>
+
+            <!-- Logo -->
+            <div class="image-text">
+                <span class="image">
+                    <img src="Images/Logo-Panda.webp" alt="Image">
+                </span>
+
+                <!-- Header Text -->
+                 <div class="text header-text">
+                    <span class="name">Astro Code</span>
+                    <span class="profession">Web developer</span>
+                 </div>
+            </div>
+
+            <i class="ri-arrow-right-s-line toggle"></i>
+        </header>
+
+        <div class="menu-bar">
+
+            <div class="menu">
+
+                 <li class="search-box">
+                        <a href="#">
+                            <i class="ri-search-line"></i>
+                            <input type="search" placeholder="search...">
+                        </a>
+                    </li>
+
+                <ul class="menu-links">
+
+                    <li class="nav-links active" data-page="dashboard">
+                        <a href="#">
+                            <i class="ri-home-4-line icon"></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-links" data-page="todo">
+                        <a href="#">
+                            <i class="ri-check-fill icon"></i>
+                            <span class="text nav-text">To do List</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-links" data-page="planner">
+                        <a href="#">
+                            <i class="ri-calendar-fill icon"></i>
+                            <span class="text nav-text">Daily Planner</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-links" data-page="goals">
+                        <a href="#">
+                            <i class="ri-focus-2-fill icon"></i>
+                            <span class="text nav-text">Daily Goals</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-links" data-page="pomodoro">
+                        <a href="#">
+                            <i class="ri-timer-2-line icon"></i>
+                            <span class="text nav-text">Focus Timer</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-links" id="daily-quote-link" data-page="quote">
+                        <a href="#">
+                            <i class="ri-chat-quote-line icon"></i>
+                            <span class="text nav-text">Daily Quote</span>
+                        </a>
+                    </li>
+
+                    
+                    <li class="nav-links" id="weatherapp-link" data-page="weather">
+                        <a href="#">
+                             <i class="ri-cloud-fill icon"></i>
+                            <span class="text nav-text">Weather</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+                 <!-- DARK MODE -->
+                    <div class="sidebar-footer">
+                    <hr class="divider">
+                  
+                    <!-- LIGHT-DARK MODE -->
+                    <div class="mode-toggle">
+                    <span class="text">Light / Dark</span>
+                    <label class="switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider"></span>
+                    </label>
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+
+                  
+            
+        </div>
+    </nav>
+
+
+    <!-- DIGITAL-CLOCK -->
+    <section class="top" id="page-dashboard">
+    <div class="container">
+        
+        <div class="clock">
+
+            <!-- GOOD EVENING -->
+            <div class="Good">
+            <h6>Good <span id="greeting" style="color: rgb(255, 192, 4);">Evening</span></h6>
+            </div>
+
+            <!-- TIMER -->
+            <div class="time">
+                <h1>
+                <span id="hours">00</span>
+                <span class="colon">:</span>
+                <span id="minutes">00</span>
+                <span class="colon">:</span>
+                <span id="seconds">00</span>
+            </h1>
+            </div>
+           
+            <!-- DATE-DAY -->
+           <div class="date">
+
+            <div class="day">
+            <h6 id="current-date">Tue 7 Jul</h6>
+            <p>Today</p>
+            </div>
+
+            <div class="progress">
+            <h6 id="day-progress">0%</h6>
+            <p>Day progress</p>
+            </div>
+
+            <div class="open-task">
+            <h6 id="open-tasks">0</h6>
+            <p>Open Tasks</p>
+            </div>
+
+           </div>
+
+        </div>
+
+        <div class="img">
+            <img src="https://i.pinimg.com/1200x/02/16/7c/02167c6a4091bee98e29aaf4a7767a62.jpg" alt="image">
+        </div>
+    </div>
+
+    <!-- DAILY QUOTES  -->
+    <section class="goals" id="quote-box" data-page="quote">
+        <div class="quote-text">
+        <h1>DAILY QUOTES</h1>
+        </div>
+        
+        <div class="video">
+        <video src="Images/Bunny-Video.mp4"  muted autoplay loop></video>
+        </div>
+        
+    </section>
+
+    <!-- PLANNER -->
+    <section class="planner">
+  <a href="#" class="planner-card-link" data-page="planner">
+    <div class="planner-info-side">
+      <h1>PLANNER</h1>
+      <p id="planner-date" class="planner-subtext">Organize your day</p>
+    </div>
+    
+    <div class="planner-metrics-side">
+      <span class="overview-title">Today Overview</span>
+      
+      <div class="planner-row">
+        <span class="row-label">📝 Total Tasks</span>
+        <span id="total-tasks-count" class="row-value">0</span>
+      </div>
+      
+      <div class="planner-row">
+        <span class="row-label">✅ Completed</span>
+        <span id="completed-tasks-count" class="row-value">0</span>
+      </div>
+      
+      <div class="planner-row">
+        <span class="row-label">⏳ Pending</span>
+        <span id="pending-tasks-count" class="row-value">0</span>
+      </div>
+    </div>
+  </a>
+</section>
+
+    <!-- POMORDO TIMER  -->
+   <section class="Pomordo">
+  <a href="#" class="pomodoro-card-link" data-page="pomodoro">
+    <div class="pomodoro-info-side">
+      <h1>POMODORO</h1>
+      <p class="pomodoro-subtext">Stay focused!</p>
+    </div>
+    
+    <div class="pomodoro-display-side">
+      <div class="mini-timer-ring">
+        <span id="mini-time-text" class="mini-time-text">25:00</span>
+      </div>
+      <div class="pomodoro-session-badge">Work Session</div>
+    </div>
+  </a>
+</section>
+
+     <!-- TO-DO-LIST -->
+     <section class="todo-box">
+  <a href="#" class="todo-card-link" data-page="todo">
+    <div class="todo-info-side">
+      <h1>TO DO LIST</h1>
+      <p class="todo-subtext">Manage your priorities</p>
+    </div>
+    
+    <div class="todo-metrics-side">
+      <span class="todo-overview-title">Progress Metrics</span>
+      <div class="todo-row">
+        <span class="todo-label">📈 Completion Rate</span>
+        <span id="todo-progress-percent" class="todo-value">0%</span>
+      </div>
+      <div class="todo-row">
+        <span class="todo-label">🔴 High Priority</span>
+        <span id="todo-high-count" class="todo-value">0</span>
+      </div>
+    </div>
+  </a>
+</section>
+
+     <!-- DAILY GOALS -->
+    <!-- DAILY GOALS -->
+<section class="Daily-Goals">
+  <a href="#" class="goals-card-link" data-page="goals">
+    <div class="goals-info-side">
+      <h1>DAILY GOALS</h1>
+      <p class="goals-subtext">Crush your targets</p>
+    </div>
+    
+    <div class="goals-metrics-side">
+      <span class="goals-overview-title">Streak Monitor</span>
+      <div class="goals-row">
+        <span class="goals-label">🔥 Day Streak</span>
+        <span id="goals-streak-count" class="goals-value">0</span>
+      </div>
+      <div class="goals-row">
+        <span class="goals-label">🎯 Target Goals</span>
+        <span id="goals-target-count" class="goals-value">0</span>
+      </div>
+    </div>
+  </a>
+</section>
+
+     <!-- WEATHER -->
+    <section class="weather-box">
+  <a href="#" class="weather-card-link" id="dynamic-bg" data-page="weather">
+    
+    <div class="card-header-row">
+      <h1>Weather</h1>
+      <span id="card-date-time" class="weather-date-tag">Live</span>
+    </div>
+    
+    <div class="weather-preview-content">
+      <div class="preview-main">
+        <span id="current-temp" class="preview-temp">--°</span>
+        <span id="weather-summary" class="weather-summary">Fetching data...</span>
+        <span id="current-location" class="preview-location">Detecting Location...</span>
+      </div>
+      
+      <div id="dynamic-icon" class="preview-icon">
+        <svg viewBox="0 0 24 24" class="app-sun-icon">
+          <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41zM6.34 16.95l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.02-.39-1.41 0z"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="card-metrics-row">
+      <div class="metric-item">
+        <span class="metric-label">Wind</span>
+        <span id="metric-wind" class="metric-value">--km/h</span>
+      </div>
+      <div class="metric-item">
+        <span class="metric-label">Humidity</span>
+        <span id="metric-humidity" class="metric-value">--%</span>
+      </div>
+      <div class="metric-item">
+        <span class="metric-label">Air Quality</span>
+        <span id="metric-aqi" class="metric-value">--</span>
+      </div>
+    </div>
+  </a>
+</section>
+</section>
+
+
+    <!-- ============================================================
+         TO DO LIST PAGE (SPA section)
+         ============================================================ -->
+    <section id="page-todo" class="spa-page">
+
+
+    <div class="todo-container">
+        <h2>Task Manager</h2>
+        
+        <form id="todo-form">
+            <input type="text" id="todo-input" placeholder="Add a new task..." required autocomplete="off">
+            <button type="submit" id="add-btn">Add Task</button>
+        </form>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+
+        <ul id="todo-list"></ul>
+        <button id="backbutton-todo" class="todo-backbutton">BACK TO DASHBOARD</button>
+    </div>
+    </section>
+
+    <!-- ============================================================
+         DAILY PLANNER PAGE (SPA section)
+         ============================================================ -->
+    <section id="page-planner" class="spa-page">
+
+<div class="daily-planner">
+
+  <aside class="planner-side">
+
+    <div class="planner-hero">
+      <p class="planner-hero__date">Monday, 6 July 2025</p>
+      <h1 class="planner-hero__title">Daily Planner</h1>
+      <p class="planner-hero__subtitle">Plan your day. Stay focused. Achieve more.</p>
+
+      <svg class="planner-hero__art" viewBox="0 0 160 160" aria-hidden="true" focusable="false">
+        <rect x="34" y="28" width="92" height="94" rx="14" fill="rgba(255,255,255,0.16)" />
+        <rect x="34" y="28" width="92" height="26" rx="14" fill="rgba(255,255,255,0.28)" />
+        <circle cx="58" cy="22" r="6" fill="rgba(255,255,255,0.55)" />
+        <circle cx="102" cy="22" r="6" fill="rgba(255,255,255,0.55)" />
+        <g fill="rgba(255,255,255,0.4)">
+          <rect x="46" y="66" width="16" height="14" rx="3" />
+          <rect x="72" y="66" width="16" height="14" rx="3" />
+          <rect x="98" y="66" width="16" height="14" rx="3" />
+          <rect x="46" y="90" width="16" height="14" rx="3" />
+          <rect x="72" y="90" width="16" height="14" rx="3" />
+        </g>
+        <circle cx="112" cy="104" r="20" fill="#FFB648" />
+        <path d="M112 94v10l7 5" stroke="#2F3049" stroke-width="3" stroke-linecap="round" fill="none" />
+        <path d="M18 40l6 6M142 40l-6 6M132 130l7 6" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round" />
+      </svg>
+    </div>
+
+    <section class="planner-card planner-overview" aria-labelledby="overview-heading">
+      <h2 id="overview-heading" class="planner-card__heading">Today Overview</h2>
+
+      <ul class="planner-stats">
+        <li class="planner-stat">
+          <span class="planner-stat__icon planner-stat__icon--tasks" aria-hidden="true">&#128197;</span>
+          <span class="planner-stat__label">Total Tasks</span>
+          <span id="plannerStatTotal" class="planner-stat__value">0</span>
+        </li>
+        <li class="planner-stat">
+          <span class="planner-stat__icon planner-stat__icon--done" aria-hidden="true">&#10003;</span>
+          <span class="planner-stat__label">Completed</span>
+          <span id="plannerStatCompleted" class="planner-stat__value">0</span>
+        </li>
+        <li class="planner-stat">
+          <span class="planner-stat__icon planner-stat__icon--pending" aria-hidden="true">&#128337;</span>
+          <span class="planner-stat__label">Pending</span>
+          <span id="plannerStatPending" class="planner-stat__value">0</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="planner-card planner-tip" aria-labelledby="tip-heading">
+      <h2 id="tip-heading" class="planner-card__heading">Focus Tip</h2>
+      <p class="planner-tip__quote">&ldquo;Focus on being productive instead of busy.&rdquo;</p>
+      <span class="planner-tip__target" aria-hidden="true">&#127919;</span>
+    </section>
+
+    <section class="planner-card planner-greeting" aria-label="Evening greeting">
+      <span class="planner-greeting__icon" aria-hidden="true">&#127765;</span>
+      <div>
+        <p class="planner-greeting__title">Good Evening!</p>
+        <p class="planner-greeting__message">Have a productive and awesome day ahead!</p>
+      </div>
+    </section>
+
+  </aside>
+
+  <!-- Right column: the hourly schedule -->
+  <section class="planner-card planner-schedule" aria-labelledby="schedule-heading">
+
+    <header class="planner-schedule__header">
+      <button type="button" id="plannerPrevDay" class="planner-nav-btn" aria-label="Go to previous day">&#8249;</button>
+
+      <h2 id="schedule-heading" class="planner-schedule__title">
+        <span class="planner-schedule__title-icon" aria-hidden="true">&#128197;</span>
+        <span id="plannerDateText">Monday, 6 July 2025</span>
+      </h2>
+
+      <button type="button" id="plannerNextDay" class="planner-nav-btn" aria-label="Go to next day">&#8250;</button>
+
+      <button type="button" class="planner-clear-btn">
+        <span aria-hidden="true">&#128465;</span> Clear All
+      </button>
+    </header>
+
+    <div class="planner-table" role="table" aria-label="Hourly schedule">
+
+      <div class="planner-table__head" role="row">
+        <span role="columnheader" class="planner-table__col-time">Time</span>
+        <span role="columnheader" class="planner-table__col-note">Plan / Note</span>
+      </div>
+
+      <div class="planner-table__body">
+
+        <!-- 06:00 AM -->
+        <div class="planner-row" role="row">
+          <label for="slot-0600" class="planner-row__time">06:00 AM</label>
+          <div class="planner-row__entry">
+            <textarea id="slot-0600" class="planner-row__textarea" placeholder="What's the plan for this hour?" rows="1"></textarea>
+            <div class="planner-row__actions">
+              <input type="checkbox" id="done-0600" class="planner-row__done" data-slot="slot-0600" />
+              <label for="done-0600" class="planner-row__done-label">Done</label>
+              <button type="button" class="planner-btn planner-btn--save">Save</button>
+              <button type="button" class="planner-btn planner-btn--clear">Clear</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 07:00 AM -->
+        <div class="planner-row" role="row">
+          <label for="slot-0700" class="planner-row__time">07:00 AM</label>
+          <div class="planner-row__entry">
+            <textarea id="slot-0700" class="planner-row__textarea" placeholder="What's the plan for this hour?" rows="1"></textarea>
+            <div class="planner-row__actions">
+              <input type="checkbox" id="done-0700" class="planner-row__done" data-slot="slot-0700" />
+              <label for="done-0700" class="planner-row__done-label">Done</label>
+              <button type="button" class="planner-btn planner-btn--save">Save</button>
+              <button type="button" class="planner-btn planner-btn--clear">Clear</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 08:00 AM -->
+        <div class="planner-row" role="row">
+          <label for="slot-0800" class="planner-row__time">08:00 AM</label>
+          <div class="planner-row__entry">
+            <textarea id="slot-0800" class="planner-row__textarea" placeholder="What's the plan for this hour?" rows="1"></textarea>
+            <div class="planner-row__actions">
+              <input type="checkbox" id="done-0800" class="planner-row__done" data-slot="slot-0800" />
+              <label for="done-0800" class="planner-row__done-label">Done</label>
+              <button type="button" class="planner-btn planner-btn--save">Save</button>
+              <button type="button" class="planner-btn planner-btn--clear">Clear</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 09:00 AM -->
+        <div class="planner-row" role="row">
+          <label for="slot-0900" class="planner-row__time">09:00 AM</label>
+          <div class="planner-row__entry">
+            <textarea id="slot-0900" class="planner-row__textarea" placeholder="What's the plan for this hour?" rows="1"></textarea>
+            <div class="planner-row__actions">
+              <input type="checkbox" id="done-0900" class="planner-row__done" data-slot="slot-0900" />
+              <label for="done-0900" class="planner-row__done-label">Done</label>
+              <button type="button" class="planner-btn planner-btn--save">Save</button>
+              <button type="button" class="planner-btn planner-btn--clear">Clear</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10:00 AM -->
+        <div class="planner-row" role="row">
+          <label for="slot-1000" class="planner-row__time">10:00 AM</label>
+          <div class="planner-row__entry">
+            <textarea id="slot-1000" class="planner-row__textarea" placeholder="What's the plan for this hour?" rows="1"></textarea>
+            <div class="planner-row__actions">
+              <input type="checkbox" id="done-1000" class="planner-row__done" data-slot="slot-1000" />
+              <label for="done-1000" class="planner-row__done-label">Done</label>
+              <button type="button" class="planner-btn planner-btn--save">Save</button>
+              <button type="button" class="planner-btn planner-btn--clear">Clear</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11:00 AM -->
+        <div class="planner-row" role="row">
+          <label for="slot-1100" class="planner-row__time">11:00 AM</label>
+          <div class="planner-row__entry">
+            <textarea id="slot-1100" class="planner-row__textarea" placeholder="What's the plan for this hour?" rows="1"></textarea>
+            <div class="planner-row__actions">
+              <input type="checkbox" id="done-1100" class="planner-row__done" data-slot="slot-1100" />
+              <label for="done-1100" class="planner-row__done-label">Done</label>
+              <button type="button" class="planner-btn planner-btn--save">Save</button>
+              <button type="button" class="planner-btn planner-btn--clear">Clear</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12:00 PM -->
+        <div class="planner-row" role="row">
+          <label for="slot-1200" class="planner-row__time">12:00 PM</label>
+          <div class="planner-row__entry">
+            <textarea id="slot-1200" class="planner-row__textarea" placeholder="What's the plan for this hour?" rows="1"></textarea>
+            <div class="planner-row__actions">
+              <input type="checkbox" id="done-1200" class="planner-row__done" data-slot="slot-1200" />
+              <label for="done-1200" class="planner-row__done-label">Done</label>
+              <button type="button" class="planner-btn planner-btn--save">Save</button>
+              <button type="button" class="planner-btn planner-btn--clear">Clear</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 01:00 PM -->
+        <div class="planner-row" role="row">
+          <label for="slot-1300" class="planner-row__time">01:00 PM</label>
+          <div class="planner-row__entry">
+            <textarea id="slot-1300" class="planner-row__textarea" placeholder="What's the plan for this hour?" rows="1"></textarea>
+            <div class="planner-row__actions">
+              <input type="checkbox" id="done-1300" class="planner-row__done" data-slot="slot-1300" />
+              <label for="done-1300" class="planner-row__done-label">Done</label>
+              <button type="button" class="planner-btn planner-btn--save">Save</button>
+              <button type="button" class="planner-btn planner-btn--clear">Clear</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02:00 PM -->
+        <div class="planner-row" role="row">
+          <label for="slot-1400" class="planner-row__time">02:00 PM</label>
+          <div class="planner-row__entry">
+            <textarea id="slot-1400" class="planner-row__textarea" placeholder="What's the plan for this hour?" rows="1"></textarea>
+            <div class="planner-row__actions">
+              <input type="checkbox" id="done-1400" class="planner-row__done" data-slot="slot-1400" />
+              <label for="done-1400" class="planner-row__done-label">Done</label>
+              <button type="button" class="planner-btn planner-btn--save">Save</button>
+              <button type="button" class="planner-btn planner-btn--clear">Clear</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03:00 PM -->
+        <div class="planner-row" role="row">
+          <label for="slot-1500" class="planner-row__time">03:00 PM</label>
+          <div class="planner-row__entry">
+            <textarea id="slot-1500" class="planner-row__textarea" placeholder="What's the plan for this hour?" rows="1"></textarea>
+            <div class="planner-row__actions">
+              <input type="checkbox" id="done-1500" class="planner-row__done" data-slot="slot-1500" />
+              <label for="done-1500" class="planner-row__done-label">Done</label>
+              <button type="button" class="planner-btn planner-btn--save">Save</button>
+              <button type="button" class="planner-btn planner-btn--clear">Clear</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04:00 PM -->
+        <div class="planner-row planner-row--active" role="row">
+          <label for="slot-1600" class="planner-row__time">
+            <span class="planner-row__dot" aria-hidden="true"></span>
+            04:00 PM
+          </label>
+          <div class="planner-row__entry">
+            <textarea id="slot-1600" class="planner-row__textarea" placeholder="What's the plan for this hour?" rows="1">Review &amp; test</textarea>
+            <div class="planner-row__actions">
+              <input type="checkbox" id="done-1600" class="planner-row__done" data-slot="slot-1600" />
+              <label for="done-1600" class="planner-row__done-label">Done</label>
+              <button type="button" class="planner-btn planner-btn--save">Save</button>
+              <button type="button" class="planner-btn planner-btn--clear">Clear</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05:00 PM -->
+        <div class="planner-row" role="row">
+          <label for="slot-1700" class="planner-row__time">05:00 PM</label>
+          <div class="planner-row__entry">
+            <textarea id="slot-1700" class="planner-row__textarea" placeholder="What's the plan for this hour?" rows="1"></textarea>
+            <div class="planner-row__actions">
+              <input type="checkbox" id="done-1700" class="planner-row__done" data-slot="slot-1700" />
+              <label for="done-1700" class="planner-row__done-label">Done</label>
+              <button type="button" class="planner-btn planner-btn--save">Save</button>
+              <button type="button" class="planner-btn planner-btn--clear">Clear</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 06:00 PM -->
+        <div class="planner-row" role="row">
+          <label for="slot-1800" class="planner-row__time">06:00 PM</label>
+          <div class="planner-row__entry">
+            <textarea id="slot-1800" class="planner-row__textarea" placeholder="What's the plan for this hour?" rows="1"></textarea>
+            <div class="planner-row__actions">
+              <input type="checkbox" id="done-1800" class="planner-row__done" data-slot="slot-1800" />
+              <label for="done-1800" class="planner-row__done-label">Done</label>
+              <button type="button" class="planner-btn planner-btn--save">Save</button>
+              <button type="button" class="planner-btn planner-btn--clear">Clear</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 07:00 PM -->
+        <div class="planner-row" role="row">
+          <label for="slot-1900" class="planner-row__time">07:00 PM</label>
+          <div class="planner-row__entry">
+            <textarea id="slot-1900" class="planner-row__textarea" placeholder="What's the plan for this hour?" rows="1"></textarea>
+            <div class="planner-row__actions">
+              <input type="checkbox" id="done-1900" class="planner-row__done" data-slot="slot-1900" />
+              <label for="done-1900" class="planner-row__done-label">Done</label>
+              <button type="button" class="planner-btn planner-btn--save">Save</button>
+              <button type="button" class="planner-btn planner-btn--clear">Clear</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 08:00 PM -->
+        <div class="planner-row" role="row">
+          <label for="slot-2000" class="planner-row__time">08:00 PM</label>
+          <div class="planner-row__entry">
+            <textarea id="slot-2000" class="planner-row__textarea" placeholder="What's the plan for this hour?" rows="1"></textarea>
+            <div class="planner-row__actions">
+              <input type="checkbox" id="done-2000" class="planner-row__done" data-slot="slot-2000" />
+              <label for="done-2000" class="planner-row__done-label">Done</label>
+              <button type="button" class="planner-btn planner-btn--save">Save</button>
+              <button type="button" class="planner-btn planner-btn--clear">Clear</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 09:00 PM -->
+        <div class="planner-row" role="row">
+          <label for="slot-2100" class="planner-row__time">09:00 PM</label>
+          <div class="planner-row__entry">
+            <textarea id="slot-2100" class="planner-row__textarea" placeholder="What's the plan for this hour?" rows="1"></textarea>
+            <div class="planner-row__actions">
+              <input type="checkbox" id="done-2100" class="planner-row__done" data-slot="slot-2100" />
+              <label for="done-2100" class="planner-row__done-label">Done</label>
+              <button type="button" class="planner-btn planner-btn--save">Save</button>
+              <button type="button" class="planner-btn planner-btn--clear">Clear</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10:00 PM -->
+        <div class="planner-row" role="row">
+          <label for="slot-2200" class="planner-row__time">10:00 PM</label>
+          <div class="planner-row__entry">
+            <textarea id="slot-2200" class="planner-row__textarea" placeholder="What's the plan for this hour?" rows="1"></textarea>
+            <div class="planner-row__actions">
+              <input type="checkbox" id="done-2200" class="planner-row__done" data-slot="slot-2200" />
+              <label for="done-2200" class="planner-row__done-label">Done</label>
+              <button type="button" class="planner-btn planner-btn--save">Save</button>
+              <button type="button" class="planner-btn planner-btn--clear">Clear</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+           <button id="backbutton-planner" class="dailyplanner-backbutton">BACK TO DASHBOARD</button>
+  </section>
+
+</div>
+    </section>
+
+    <!-- ============================================================
+         DAILY GOALS PAGE (SPA section)
+         ============================================================ -->
+    <section id="page-goals" class="spa-page">
+
+
+  <div class="dg-widget" id="dgWidget">
+    <div class="dg-card">
+      <button type="button" class="dailygoals-backbutton">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span id="backbutton-goals">Back to Dashboard</span>
+      </button>
+
+      <header class="dg-header">
+        <div class="dg-header-text">
+          <h1 class="dg-title">Daily Goals</h1>
+          <p class="dg-subtitle">Stay focused and accomplish today's priorities.</p>
+        </div>
+        <div class="dg-header-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="13" r="8" stroke="#6366F1" stroke-width="1.6"/>
+            <circle cx="11" cy="13" r="4.5" stroke="#6366F1" stroke-width="1.6"/>
+            <circle cx="11" cy="13" r="1.2" fill="#6366F1"/>
+            <path d="M15 9L20 4M20 4H16.5M20 4V7.5" stroke="#F59E0B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </header>
+
+      <section class="dg-progress-card">
+        <div class="dg-ring-wrap">
+          <svg class="dg-ring" viewBox="0 0 120 120">
+            <circle class="dg-ring-bg" cx="60" cy="60" r="52"></circle>
+            <circle class="dg-ring-fill" id="dgRingFill" cx="60" cy="60" r="52"></circle>
+          </svg>
+          <div class="dg-ring-label" id="dgRingLabel">0%</div>
+        </div>
+        <div class="dg-progress-info">
+          <span class="dg-progress-heading">Progress</span>
+          <div class="dg-progress-bar-track">
+            <div class="dg-progress-bar-fill" id="dgProgressBar"></div>
+          </div>
+          <span class="dg-progress-caption" id="dgProgressCaption">0 of 0 goals completed</span>
+        </div>
+      </section>
+
+      <section class="dg-input-row">
+        <div class="dg-input-wrap">
+          <svg class="dg-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3L13.7 9.2L20 11L13.7 12.8L12 19L10.3 12.8L4 11L10.3 9.2L12 3Z" fill="#6366F1"/>
+          </svg>
+          <input type="text" id="dgInput" class="dg-input" placeholder="What do you want to accomplish today?" maxlength="120">
+        </div>
+        <button class="dg-add-btn" id="dgAddBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+          <span>Add Goal</span>
+        </button>
+      </section>
+
+      <section class="dg-list-section">
+        <ul class="dg-goals-list" id="dgGoalsList"></ul>
+
+        <div class="dg-empty-state" id="dgEmptyState">
+          <div class="dg-empty-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="9" stroke="#94A3B8" stroke-width="1.5"/>
+              <circle cx="12" cy="12" r="5" stroke="#94A3B8" stroke-width="1.5"/>
+              <circle cx="12" cy="12" r="1.3" fill="#94A3B8"/>
+            </svg>
+          </div>
+          <p class="dg-empty-title">No goals yet</p>
+          <p class="dg-empty-subtitle">Start by adding your first goal.</p>
+        </div>
+      </section>
+
+      <section class="dg-stats-row">
+        <div class="dg-stat-card dg-stat-completed">
+          <div class="dg-stat-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 13L9.5 17.5L19 7" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="dg-stat-number" id="dgStatCompleted">0</div>
+          <div class="dg-stat-label">Completed</div>
+        </div>
+        <div class="dg-stat-card dg-stat-pending">
+          <div class="dg-stat-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="8.5" stroke="#F59E0B" stroke-width="2"/>
+              <path d="M12 7.5V12L15 14.5" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="dg-stat-number" id="dgStatPending">0</div>
+          <div class="dg-stat-label">Pending</div>
+        </div>
+        <div class="dg-stat-card dg-stat-rate">
+          <div class="dg-stat-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 15L9.5 9.5L13.5 13.5L20 7" stroke="#6366F1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M15 7H20V12" stroke="#6366F1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="dg-stat-number" id="dgStatRate">0%</div>
+          <div class="dg-stat-label">Completion Rate</div>
+        </div>
+      </section>
+
+      <footer class="dg-footer">
+        <span class="dg-quote-mark">&ldquo;</span>
+        <span id="dgQuote">Small progress every day adds up to big results.</span>
+        <span class="dg-quote-mark">&rdquo;</span>
+      </footer>
+
+    </div>
+  </div>
+    </section>
+
+    <!-- ============================================================
+         POMODORO TIMER PAGE (SPA section)
+         ============================================================ -->
+    <section id="page-pomodoro" class="spa-page">
+
+
+ <div class="pomodoro-component">
+    <div class="timer-card">
+      
+      <header class="timer-header">
+        <div class="brand">
+          <span class="brand-icon">🍅</span>
+          <h2 class="brand-title">Pomodoro Timer</h2>
+        </div>
+        <button class="settings-btn" aria-label="Timer Settings">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+        </button>
+      </header>
+
+      <div class="session-badge-container">
+        <span class="session-badge" data-status="work">
+          <span class="badge-text">WORK SESSION</span>
+        </span>
+      </div>
+
+      <div class="timer-display-container">
+        <svg class="progress-ring" viewBox="0 0 280 280" width="100%" height="100%">
+          <circle class="progress-ring__track" cx="140" cy="140" r="125" stroke-width="8" />
+          <circle class="progress-ring__circle" cx="140" cy="140" r="125" stroke-width="8" stroke-linecap="round" />
+        </svg>
+        
+        <div class="timer-content">
+          <div class="time-countdown">25:00</div>
+          <div class="timer-status-message">Stay focused!</div>
+          <div class="decorative-leaves">🍃</div>
+        </div>
+      </div>
+
+      <div class="timer-controls">
+        <button class="control-btn start-btn" aria-label="Start Timer">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          <span class="control-label">START</span>
+        </button>
+        
+        <button class="control-btn pause-btn" aria-label="Pause Timer">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <rect x="6" y="4" width="4" height="16"></rect>
+            <rect x="14" y="4" width="4" height="16"></rect>
+          </svg>
+          <span class="control-label">PAUSE</span>
+        </button>
+        
+        <button class="control-btn reset-btn" aria-label="Reset Timer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
+          </svg>
+          <span class="control-label">RESET</span>
+        </button>
+      </div>
+
+      <footer class="timer-stats-container">
+        <div class="stats-card">
+          <div class="stats-icon text-success">
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
+          <div class="stats-info">
+            <span class="stats-label">Completed Today</span>
+            <span class="stats-value total-sessions-value">0 sessions</span>
+          </div>
+        </div>
+
+        <div class="stats-card">
+          <div class="stats-icon text-accent">
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <div class="stats-info">
+            <span class="stats-label">Focus Time</span>
+            <span class="stats-value total-focus-value">0m</span>
+          </div>
+        </div>
+      </footer>
+
+      <div class="timer-footer-quote">
+        Focus Beats Motivation
+      </div>
+      <button id="backbutton-pomodoro" class="pomodoro-backbutton">BACK TO DASHBOARD</button>
+    </div>
+
+    <div class="pomodoro-toast" role="alert" aria-live="assertive"></div>
+  </div>
+    </section>
+
+    <!-- ============================================================
+         DAILY QUOTE PAGE (SPA section)
+         ============================================================ -->
+    <section id="page-quote" class="spa-page">
+
+    <section class="container">
+        <header>Quote ot the Day</header>
+        <div class="content">
+            <div class="quote-area">
+                <i class="ri-double-quotes-l"></i>
+                <p class="quote">Never Give up because you never know if the next try is going to be the one that works.</p>
+                <i class="ri-double-quotes-r"></i>
+            </div>
+            <div class="author">
+                <span>-</span>
+                <span class="name" id="author">Mary Kay Ash</span>
+                
+            </div>
+            <hr>
+        </div>
+        <div class="button">
+            
+                <div class="left">
+                    <button class="back-btn">BACK DASHBOARD</button>
+                </div>
+
+                <div class="right">
+                 <button>New Quote</button>
+                </div>
+                
+        </div>
+    </section>
+    </section>
+
+    <!-- ============================================================
+         WEATHER APP PAGE (SPA section)
+         ============================================================ -->
+    <section id="page-weather" class="spa-page">
+
+	<div class="weatherapp">
+		<div class="container">
+			<aside class="sidebar">
+				<div class="sidebar-glow sidebar-glow-1"></div>
+				<div class="sidebar-glow sidebar-glow-2"></div>
+				<div class="sidebar-top">
+					<div class="sidebar-heading-row">
+						<p class="current-date" id="currentDate">-- -- , -- --:--</p>
+						<button class="refresh-button" id="refreshButton" title="Refresh weather data">
+							<i class="fa-solid fa-rotate"></i>
+						</button>
+					</div>
+					<h1 class="city-name" id="mainCityName">Loading&hellip;</h1>
+					<p class="rain-chance" id="rainChance">Chance of Rain: --%</p>
+					<div class="temperature-block">
+						<span class="temperature" id="mainTemp">--</span><span class="degree">°</span>
+					</div>
+					<div class="main-weather-icon">
+						<i class="fa-solid fa-cloud-sun-rain" id="mainWeatherIcon"></i>
+					</div>
+				</div>
+				<div class="temperature-graph">
+					<svg viewBox="0 0 220 70" class="graph-svg" id="graphSvg">
+						<path d="M 0 45 C 40 45, 50 10, 95 10 C 140 10, 150 55, 220 55" id="graphPath" />
+						<circle cx="95" cy="10" r="4" id="graphPoint" />
+					</svg>
+					<span class="graph-label" id="graphLabel">--</span>
+					<div class="graph-endpoints">
+						<span id="graphStart">--</span>
+						<span id="graphEnd">--</span>
+					</div>
+				</div>
+				<div class="stats-row">
+					<div class="stat-item">
+						<i class="fa-solid fa-wind"></i>
+						<span class="stat-label">wind</span>
+						<span class="stat-value" id="windValue">--</span>
+					</div>
+					<div class="stat-item">
+						<i class="fa-solid fa-droplet"></i>
+						<span class="stat-label">humidity</span>
+						<span class="stat-value" id="humidityValue">--</span>
+					</div>
+					<div class="stat-item">
+						<i class="fa-solid fa-wave-square"></i>
+						<span class="stat-label">Air quality</span>
+						<span class="stat-value" id="aqiValue">--</span>
+					</div>
+				</div>
+				<nav class="sidebar-nav" id="sidebarNav">
+					<button class="nav-button active" data-metric="temperature" title="Temperature">
+						<i class="fa-solid fa-droplet"></i>
+					</button>
+					<button class="nav-button" data-metric="wind" title="Wind speed">
+						<i class="fa-solid fa-wind"></i>
+					</button>
+					<button class="nav-button" data-metric="humidity" title="Humidity">
+						<i class="fa-solid fa-tint"></i>
+					</button>
+					<button class="nav-button" data-metric="aqi" title="Air quality">
+						<i class="fa-solid fa-wave-square"></i>
+					</button>
+				</nav>
+			</aside>
+
+			<section class="main-content">
+				<div class="forecast" id="forecastRow">
+					<article class="forecast-card">
+						<h2 class="forecast-day">--</h2>
+						<p class="forecast-date">--</p>
+						<div class="weather-icon"><i class="fa-solid fa-cloud"></i></div>
+						<p class="forecast-range">--</p>
+						<p class="forecast-type">--</p>
+						<p class="forecast-wind">Wind: --</p>
+						<span class="status-badge">--</span>
+					</article>
+					<article class="forecast-card">
+						<h2 class="forecast-day">--</h2>
+						<p class="forecast-date">--</p>
+						<div class="weather-icon"><i class="fa-solid fa-cloud"></i></div>
+						<p class="forecast-range">--</p>
+						<p class="forecast-type">--</p>
+						<p class="forecast-wind">Wind: --</p>
+						<span class="status-badge">--</span>
+					</article>
+					<article class="forecast-card">
+						<h2 class="forecast-day">--</h2>
+						<p class="forecast-date">--</p>
+						<div class="weather-icon"><i class="fa-solid fa-cloud"></i></div>
+						<p class="forecast-range">--</p>
+						<p class="forecast-type">--</p>
+						<p class="forecast-wind">Wind: --</p>
+						<span class="status-badge">--</span>
+					</article>
+					<article class="forecast-card">
+						<h2 class="forecast-day">--</h2>
+						<p class="forecast-date">--</p>
+						<div class="weather-icon"><i class="fa-solid fa-cloud"></i></div>
+						<p class="forecast-range">--</p>
+						<p class="forecast-type">--</p>
+						<p class="forecast-wind">Wind: --</p>
+						<span class="status-badge">--</span>
+					</article>
+				</div>
+
+				<div class="city-list" id="cityList"></div>
+
+				<form class="add-city-form" id="addCityForm">
+					<i class="fa-solid fa-magnifying-glass add-city-icon"></i>
+					<input
+						type="text"
+						id="addCityInput"
+						class="add-city-input"
+						placeholder="Add a city… e.g. banglore,dehli,chenai etc"
+						autocomplete="off"
+					>
+					<button type="submit" class="add-city-button" id="addCityButton">
+						<i class="fa-solid fa-plus"></i>
+						<span>Add</span>
+					</button>
+				</form>
+				<p class="add-city-message" id="addCityMessage"></p>
+				<button id="backbutton-weather" class="weather-backbutton">Back to Dashboard</button>
+			</section>
+		</div>
+	</div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
