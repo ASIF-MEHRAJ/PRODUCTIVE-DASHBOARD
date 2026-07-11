@@ -172,6 +172,18 @@ function showPage(pageId) {
         sidebar.style.display = (pageId === "dashboard") ? "" : "none";
     }
 
+    // Mobile browsers can pause a video when its container becomes display:none;
+    // resume it whenever the dashboard (which hosts the quote video) is shown again.
+    if (pageId === "dashboard") {
+        const quoteVideo = document.getElementById("quote-video");
+        if (quoteVideo) {
+            const playPromise = quoteVideo.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(() => {});
+            }
+        }
+    }
+
     window.scrollTo(0, 0);
 }
 
